@@ -98,11 +98,21 @@
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
       <a href="/posts/my-first-post/" class="link black dim">
-        My First Post
+        在使用hugo中碰到的问题以及解决方案
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      
+      1.配置样式一直启动不了，显示 404 page not found
+报错提示&quot;unmarshal failed&quot;
+在windows 11中使用power shell生成的文本是utf-16编码，导致 toml配置文件不能正确解析，从而导致主题样式无法正确加载。
+toml是一种配置文件，类似于ini、xml、json、yaml、properties等，是前GitHub CEO， Tom Preston-Werner于2013年创建的语言，其目标是成为一个小规模、易使用的配置文件格式
+其规范中提到
+1.大小写敏感
+2.文件必须是合法的 UTF-8 编码的 Unicode 文档
+解决方案： 将文档转换成utf-8编码问题
+2.利用github.io搭建线上的博客 page not found
+本地调试通过生成静态网页后push到github.io上之后，github显示page not found
+解决方案：需要在配置文件config.toml中配置相应的baseURL为相应的，工程名+github.io域名
     </div>
     <a href="/posts/my-first-post/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
