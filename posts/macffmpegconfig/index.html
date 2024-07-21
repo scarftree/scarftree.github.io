@@ -1,0 +1,362 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>macOS clion ffmpeg 配置 - </title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="clion下配置了一天，给自己做个笔记
+Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。
+set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work
+CMAKE文件这样写就OK了
+cmake_minimum_required(VERSION 3.22) project(untitled) set(CMAKE_CXX_STANDARD 14) include_directories(./include/) # 头文件搜索路径 link_directories(./lib/) # 动态链接库或静态链接库的搜索路径 add_executable(target main.cpp) target_link_libraries(target avcodec avdevice avfilter avformat ) 主文件
+#include &lt;iostream&gt; extern &#34;C&#34; { #include &#34;libavcodec/avcodec.h&#34; #include&lt;libavdevice/avdevice.h&gt; } int main() { std::cout &lt;&lt; &#34;avdevice_license--&gt;&#34; &lt;&lt; avdevice_license() &lt;&lt; std::endl; std::cout &lt;&lt; avcodec_configuration(); return 0; } ffmpeg是c语言写的第三方库，所以在C&#43;&#43;中使用extern关键字引入。
+参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/
+https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html" />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://scarftree.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://scarftree.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://scarftree.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://scarftree.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://scarftree.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="macOS clion ffmpeg 配置">
+<meta itemprop="description" content="clion下配置了一天，给自己做个笔记
+Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。
+set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work
+CMAKE文件这样写就OK了
+cmake_minimum_required(VERSION 3.22) project(untitled) set(CMAKE_CXX_STANDARD 14) include_directories(./include/) # 头文件搜索路径 link_directories(./lib/) # 动态链接库或静态链接库的搜索路径 add_executable(target main.cpp) target_link_libraries(target avcodec avdevice avfilter avformat ) 主文件
+#include &lt;iostream&gt; extern &#34;C&#34; { #include &#34;libavcodec/avcodec.h&#34; #include&lt;libavdevice/avdevice.h&gt; } int main() { std::cout &lt;&lt; &#34;avdevice_license--&gt;&#34; &lt;&lt; avdevice_license() &lt;&lt; std::endl; std::cout &lt;&lt; avcodec_configuration(); return 0; } ffmpeg是c语言写的第三方库，所以在C&#43;&#43;中使用extern关键字引入。
+参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/
+https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html"><meta itemprop="datePublished" content="2024-07-02T14:58:58+08:00" />
+<meta itemprop="dateModified" content="2024-07-02T14:58:58+08:00" />
+<meta itemprop="wordCount" content="54">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="macOS clion ffmpeg 配置" />
+<meta property="og:description" content="clion下配置了一天，给自己做个笔记
+Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。
+set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work
+CMAKE文件这样写就OK了
+cmake_minimum_required(VERSION 3.22) project(untitled) set(CMAKE_CXX_STANDARD 14) include_directories(./include/) # 头文件搜索路径 link_directories(./lib/) # 动态链接库或静态链接库的搜索路径 add_executable(target main.cpp) target_link_libraries(target avcodec avdevice avfilter avformat ) 主文件
+#include &lt;iostream&gt; extern &#34;C&#34; { #include &#34;libavcodec/avcodec.h&#34; #include&lt;libavdevice/avdevice.h&gt; } int main() { std::cout &lt;&lt; &#34;avdevice_license--&gt;&#34; &lt;&lt; avdevice_license() &lt;&lt; std::endl; std::cout &lt;&lt; avcodec_configuration(); return 0; } ffmpeg是c语言写的第三方库，所以在C&#43;&#43;中使用extern关键字引入。
+参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/
+https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://scarftree.github.io/posts/macffmpegconfig/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-02T14:58:58+08:00" />
+<meta property="article:modified_time" content="2024-07-02T14:58:58+08:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="macOS clion ffmpeg 配置"/>
+<meta name="twitter:description" content="clion下配置了一天，给自己做个笔记
+Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。
+set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work
+CMAKE文件这样写就OK了
+cmake_minimum_required(VERSION 3.22) project(untitled) set(CMAKE_CXX_STANDARD 14) include_directories(./include/) # 头文件搜索路径 link_directories(./lib/) # 动态链接库或静态链接库的搜索路径 add_executable(target main.cpp) target_link_libraries(target avcodec avdevice avfilter avformat ) 主文件
+#include &lt;iostream&gt; extern &#34;C&#34; { #include &#34;libavcodec/avcodec.h&#34; #include&lt;libavdevice/avdevice.h&gt; } int main() { std::cout &lt;&lt; &#34;avdevice_license--&gt;&#34; &lt;&lt; avdevice_license() &lt;&lt; std::endl; std::cout &lt;&lt; avcodec_configuration(); return 0; } ffmpeg是c语言写的第三方库，所以在C&#43;&#43;中使用extern关键字引入。
+参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/
+https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html"/>
+
+  
+  
+  
+  <link rel="canonical" href="https://scarftree.github.io/posts/macffmpegconfig/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://scarftree.github.io/"
+      ></a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">macOS clion ffmpeg 配置</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jul 2, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>clion下配置了一天，给自己做个笔记</p>
+<p>Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。</p>
+<p>set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work</p>
+<p>CMAKE文件这样写就OK了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake_minimum_required<span style="color:#f92672">(</span>VERSION 3.22<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>project<span style="color:#f92672">(</span>untitled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set<span style="color:#f92672">(</span>CMAKE_CXX_STANDARD 14<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>include_directories<span style="color:#f92672">(</span>./include/<span style="color:#f92672">)</span> <span style="color:#75715e"># 头文件搜索路径</span>
+</span></span><span style="display:flex;"><span>link_directories<span style="color:#f92672">(</span>./lib/<span style="color:#f92672">)</span> <span style="color:#75715e"># 动态链接库或静态链接库的搜索路径</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable<span style="color:#f92672">(</span>target main.cpp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>target_link_libraries<span style="color:#f92672">(</span>target
+</span></span><span style="display:flex;"><span>        avcodec
+</span></span><span style="display:flex;"><span>        avdevice
+</span></span><span style="display:flex;"><span>        avfilter
+</span></span><span style="display:flex;"><span>        avformat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>主文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;libavcodec/avcodec.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#include&lt;libavdevice/avdevice.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;avdevice_license--&gt;&#34;</span> <span style="color:#f92672">&lt;&lt;</span> avdevice_license() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> avcodec_configuration();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>ffmpeg是c语言写的第三方库，所以在C++中使用extern关键字引入。</p>
+<p>参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/</p>
+<p><a href="https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html">https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html</a></p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scarftree.github.io/posts/test/"
+      ><span class="mr-1.5">←</span><span>STL find_if issue</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scarftree.github.io/posts/my-first-post/"
+      ><span>在使用hugo中碰到的问题以及解决方案</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://scarftree.github.io/"></a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

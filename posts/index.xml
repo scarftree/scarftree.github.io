@@ -6,21 +6,28 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Jan 2024 16:33:50 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2024 15:57:08 +0800</lastBuildDate>
     <atom:link href="https://scarftree.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STL find_if issue</title>
+      <link>https://scarftree.github.io/posts/test/</link>
+      <pubDate>Tue, 02 Jul 2024 15:57:08 +0800</pubDate>
+      <guid>https://scarftree.github.io/posts/test/</guid>
+      <description>true</description>
+    </item>
+    <item>
+      <title>macOS clion ffmpeg 配置</title>
+      <link>https://scarftree.github.io/posts/macffmpegconfig/</link>
+      <pubDate>Tue, 02 Jul 2024 14:58:58 +0800</pubDate>
+      <guid>https://scarftree.github.io/posts/macffmpegconfig/</guid>
+      <description>clion下配置了一天，给自己做个笔记&#xA;Mac系统并不支持链接静态库，在clion里面使用第三方库，必须把lib和 include头文件，文件夹导入工程目录，不然一直回现实头文件找不到。&#xA;set(FFMPEG_DIR, /usr/local/ffmpeg)作为引入路径，并不work&#xA;CMAKE文件这样写就OK了&#xA;cmake_minimum_required(VERSION 3.22) project(untitled) set(CMAKE_CXX_STANDARD 14) include_directories(./include/) # 头文件搜索路径 link_directories(./lib/) # 动态链接库或静态链接库的搜索路径 add_executable(target main.cpp) target_link_libraries(target avcodec avdevice avfilter avformat ) 主文件&#xA;#include &amp;lt;iostream&amp;gt; extern &amp;#34;C&amp;#34; { #include &amp;#34;libavcodec/avcodec.h&amp;#34; #include&amp;lt;libavdevice/avdevice.h&amp;gt; } int main() { std::cout &amp;lt;&amp;lt; &amp;#34;avdevice_license--&amp;gt;&amp;#34; &amp;lt;&amp;lt; avdevice_license() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; avcodec_configuration(); return 0; } ffmpeg是c语言写的第三方库，所以在C++中使用extern关键字引入。&#xA;参考：https://qincji.gitee.io/2020/12/24/ffmpeg/04_import_ffmpeg/&#xA;https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html</description>
+    </item>
     <item>
       <title>在使用hugo中碰到的问题以及解决方案</title>
       <link>https://scarftree.github.io/posts/my-first-post/</link>
       <pubDate>Tue, 23 Jan 2024 16:33:50 +0800</pubDate>
       <guid>https://scarftree.github.io/posts/my-first-post/</guid>
       <description>1.配置样式一直启动不了，显示 404 page not found&#xA;报错提示&amp;quot;unmarshal failed&amp;quot;&#xA;在windows 11中使用power shell生成的文本是utf-16编码，导致 toml配置文件不能正确解析，从而导致主题样式无法正确加载。&#xA;toml是一种配置文件，类似于ini、xml、json、yaml、properties等，是前GitHub CEO， Tom Preston-Werner于2013年创建的语言，其目标是成为一个小规模、易使用的配置文件格式&#xA;其规范中提到&#xA;1.大小写敏感&#xA;2.文件必须是合法的 UTF-8 编码的 Unicode 文档&#xA;解决方案： 将文档转换成utf-8编码问题&#xA;2.利用github.io搭建线上的博客 page not found&#xA;本地调试通过生成静态网页后push到github.io上之后，github显示page not found&#xA;解决方案：需要在配置文件config.toml中配置相应的baseURL为相应的，工程名+github.io域名</description>
-    </item>
-    <item>
-      <title>我的第一篇博客</title>
-      <link>https://scarftree.github.io/posts/second/</link>
-      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://scarftree.github.io/posts/second/</guid>
-      <description>这里是Markdown 正文</description>
     </item>
   </channel>
 </rss>
